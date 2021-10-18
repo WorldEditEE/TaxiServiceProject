@@ -41,4 +41,12 @@ public class OrderServiceImpl implements OrderService {
 
         return "Поездка началась";
     }
+
+    @Override
+    public String endTrip(Order order) {
+
+        orderMapper.endTrip(order.getOrderID());
+
+        return "Поездка завершена";
+    }
 }

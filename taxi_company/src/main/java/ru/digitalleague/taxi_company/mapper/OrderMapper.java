@@ -16,4 +16,7 @@ public interface OrderMapper {
 
     @Update("UPDATE test.orders SET start_trip= now() WHERE order_id=#{orderID}")
     void startTrip(long orderID);
+
+    @Update("UPDATE test.orders SET end_trip= now() WHERE order_id=#{orderID}")
+    void endTrip(long orderID);
 }

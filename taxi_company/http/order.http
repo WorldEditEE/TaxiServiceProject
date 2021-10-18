@@ -8,3 +8,14 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:8082/end-trip
+Content-Type: application/json
+
+{
+  "orderID": "1",
+  "clientNumber": "79181228555",
+  "driverID": "2"
+}
+
+###

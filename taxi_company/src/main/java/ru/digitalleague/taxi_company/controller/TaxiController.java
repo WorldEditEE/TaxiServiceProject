@@ -31,4 +31,12 @@ public class TaxiController {
         return ResponseEntity.ok(startTrip);
     }
 
+    @PostMapping("/end-trip")
+    public ResponseEntity<String> endTrip(@RequestBody Order order){
+
+        String endTrip = orderService.endTrip(order);
+
+        return ResponseEntity.ok(endTrip);
+    }
+
 }

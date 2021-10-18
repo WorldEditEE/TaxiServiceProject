@@ -8,4 +8,6 @@ public interface OrderService {
     String findDriver(OrderDetails orderDetails);
 
     String startTrip(Order order);
+
+    String endTrip(Order order);
 }
