@@ -1,0 +1,8 @@
+POST http://localhost:8080/order-taxi
+Content-Type: application/json
+
+{
+  "clientNumber": "79181228555"
+}
+
+###
