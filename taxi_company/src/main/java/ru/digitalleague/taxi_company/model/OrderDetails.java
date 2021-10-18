@@ -1,6 +1,4 @@
-package ru.digitalleague.core.model;
-
-import lombok.*;
+package ru.digitalleague.taxi_company.model;
 
 public class OrderDetails {
 

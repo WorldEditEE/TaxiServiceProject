@@ -1,11 +1,8 @@
-package ru.digitalleague.core.config;
+package ru.digitalleague.taxi_company.configuration;
 
-import liquibase.integration.spring.SpringLiquibase;
 import org.springframework.boot.jdbc.DataSourceBuilder;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.client.RestTemplate;
 
 import javax.sql.DataSource;
 
@@ -20,18 +17,6 @@ public class ApplicationConfiguration {
         dataSourceBuilder.username("aleksandrukolov");
         dataSourceBuilder.password("1707");
         return dataSourceBuilder.build();
-    }
-
-    @Bean
-    public SpringLiquibase liquibase(){
-        SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setShouldRun(false);
-        return liquibase;
-    }
-
-    @Bean
-    public RestTemplate restTemplate(RestTemplateBuilder build){
-        return new RestTemplate();
     }
 
 }

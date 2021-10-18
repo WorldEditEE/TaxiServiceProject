@@ -2,7 +2,9 @@ POST http://localhost:8080/order-taxi
 Content-Type: application/json
 
 {
-  "clientNumber": "79181228555"
+  "clientNumber": "79181228555",
+  "level": "2",
+  "city": "Москва"
 }
 
 ###
