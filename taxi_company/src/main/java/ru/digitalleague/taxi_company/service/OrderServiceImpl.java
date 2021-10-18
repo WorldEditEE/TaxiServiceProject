@@ -9,6 +9,9 @@ import ru.digitalleague.taxi_company.model.Order;
 import ru.digitalleague.taxi_company.model.OrderDetails;
 import ru.digitalleague.taxi_company.model.TaxiDriverInfo;
 
+import java.util.Calendar;
+import java.util.Date;
+
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -29,5 +32,13 @@ public class OrderServiceImpl implements OrderService {
 
 
         return driverName;
+    }
+
+    @Override
+    public String startTrip(Order order) {
+
+        orderMapper.startTrip(order.getOrderID());
+
+        return "Поездка началась";
     }
 }
