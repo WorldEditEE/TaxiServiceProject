@@ -44,7 +44,7 @@ public class TaxiController {
     public ResponseEntity<String> rateDriver(@RequestBody RateOrder rateOrder){
 
 
-        if(rateOrder.getRating() > 1 && rateOrder.getRating() < 5){
+        if(rateOrder.getRating() >= 1 && rateOrder.getRating() <= 5){
             int rate = orderService.rateOrder(rateOrder);
             return ResponseEntity.ok("Ваша оценка - " + rate );
 
