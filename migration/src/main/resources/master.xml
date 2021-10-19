@@ -7,4 +7,5 @@
 <!--    <include file="db/changelog/0.0.1-SNAPSHOT/changelog-01.xml" relativeToChangelogFile="true"/>-->
 <!--    <include file="db/changelog/1.0.2/V1.0.2.xml" relativeToChangelogFile="true"/>-->
     <include file="db/changelog/1.0.0/changelog-01.xml" relativeToChangelogFile="true"/>
+    <include file="db/changelog/1.0.1/changelog-02.xml" relativeToChangelogFile="true"/>
 </databaseChangeLog>
