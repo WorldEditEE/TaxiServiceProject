@@ -2,9 +2,9 @@ POST http://localhost:8082/start-trip
 Content-Type: application/json
 
 {
-  "orderID": "2",
+  "orderID": "9",
   "clientNumber": "79181228555",
-  "driverID": "3"
+  "driverID": "2"
 }
 
 ###
@@ -13,9 +13,9 @@ POST http://localhost:8082/end-trip
 Content-Type: application/json
 
 {
-  "orderID": "2",
+  "orderID": "9",
   "clientNumber": "79181228555",
-  "driverID": "3"
+  "driverID": "2"
 }
 
 ###

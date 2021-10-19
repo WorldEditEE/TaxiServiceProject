@@ -37,4 +37,20 @@ public interface DriverInfoMapper {
 
     @Update("UPDATE test.taxi_drive_info SET is_free=true WHERE driver_id=#{driverID}")
     void setFree(long driverID);
+
+    @Results(id = "driver", value = {
+            @Result(property = "driverId", column = "driver_id"),
+            @Result(property = "lastName", column = "last_name"),
+            @Result(property = "firstName", column = "first_name"),
+            @Result(property = "level", column = "level"),
+            @Result(property = "carModel", column = "car_model"),
+            @Result(property = "createDttm", column = "create_dttm"),
+            @Result(property = "city_id", column = "city_id"),
+            @Result(property = "isFree", column = "is_free"),
+            @Result(property = "minuteCost", column = "minute_cost"),
+            @Result(property = "rating", column = "rating"),
+    })
+    @Select("SELECT driver_id, last_name, first_name, level, car_model, create_dttm, city_id, is_free, minute_cost, rating " +
+            "FROM test.taxi_drive_info WHERE driver_id=#{driverID}")
+    TaxiDriverInfo findDriverById(long driverID);
 }

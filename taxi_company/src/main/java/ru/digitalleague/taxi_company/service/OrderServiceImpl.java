@@ -5,10 +5,14 @@ import org.springframework.stereotype.Service;
 import ru.digitalleague.taxi_company.api.OrderService;
 import ru.digitalleague.taxi_company.mapper.DriverInfoMapper;
 import ru.digitalleague.taxi_company.mapper.OrderMapper;
+import ru.digitalleague.taxi_company.mapper.OrderTotalMapper;
 import ru.digitalleague.taxi_company.model.Order;
 import ru.digitalleague.taxi_company.model.OrderDetails;
 import ru.digitalleague.taxi_company.model.TaxiDriverInfo;
 
+import java.text.SimpleDateFormat;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -20,6 +24,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderMapper orderMapper;
+
+    @Autowired
+    OrderTotalMapper orderTotalMapper;
 
     @Override
     public String findDriver(OrderDetails orderDetails) {
@@ -49,6 +56,16 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.endTrip(order.getOrderID());
         driverMapper.setFree(order.getDriverID());
 
-        return "Поездка завершена";
+        Order totalOrder = orderMapper.getOrderById(order.getOrderID());
+        long currentTime = totalOrder.getEndTrip().getTime()-totalOrder.getStartTrip().getTime();
+
+        long totalTime = currentTime / 60000 ;
+
+        TaxiDriverInfo driver = driverMapper.findDriverById(totalOrder.getDriverID());
+        int totalSum = Integer.parseInt(String.valueOf(totalTime)) * driver.getMinuteCost();
+
+        orderTotalMapper.addSumTrip(totalSum, totalOrder.getOrderID());
+
+        return "Поездка завершена, цена поездки - " + totalSum;
     }
 }

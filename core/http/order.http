@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {
   "clientNumber": "79181228555",
-  "level": "3",
+  "level": "2",
   "city": "Москва"
 }
 
