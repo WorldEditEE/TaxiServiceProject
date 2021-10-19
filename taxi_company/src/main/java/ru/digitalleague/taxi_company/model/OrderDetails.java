@@ -1,5 +1,8 @@
 package ru.digitalleague.taxi_company.model;
 
+import io.swagger.annotations.ApiModel;
+
+@ApiModel(value = "Модель заказа такси")
 public class OrderDetails {
 
     private long clientNumber;

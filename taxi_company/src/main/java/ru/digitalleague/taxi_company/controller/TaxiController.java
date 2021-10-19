@@ -1,5 +1,6 @@
 package ru.digitalleague.taxi_company.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +26,7 @@ public class TaxiController {
     }
 
     @PostMapping("/start-trip")
+    @ApiOperation(value = "Контроллер для начала поездки")
     public ResponseEntity<String> startTrip(@RequestBody Order order){
 
         String startTrip = orderService.startTrip(order);
@@ -33,6 +35,7 @@ public class TaxiController {
     }
 
     @PostMapping("/end-trip")
+    @ApiOperation(value = "Контроллер для завершения поездки")
     public ResponseEntity<String> endTrip(@RequestBody Order order){
 
         String endTrip = orderService.endTrip(order);
@@ -41,6 +44,7 @@ public class TaxiController {
     }
 
     @PostMapping("/rate-driver")
+    @ApiOperation(value = "Контроллер для оценки поездки клиентом")
     public ResponseEntity<String> rateDriver(@RequestBody RateOrder rateOrder){
 
 

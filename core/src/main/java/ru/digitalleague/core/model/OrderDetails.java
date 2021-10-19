@@ -1,7 +1,9 @@
 package ru.digitalleague.core.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.*;
 
+@ApiModel(value = "Модель для заказа такси")
 public class OrderDetails {
 
     private long clientNumber;

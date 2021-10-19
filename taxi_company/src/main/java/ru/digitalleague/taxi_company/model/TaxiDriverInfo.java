@@ -1,5 +1,6 @@
 package ru.digitalleague.taxi_company.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Builder;
 import lombok.Data;
 
@@ -7,6 +8,7 @@ import java.util.Date;
 
 @Data
 @Builder
+@ApiModel(value = "Модель водителя")
 public class TaxiDriverInfo {
 
 

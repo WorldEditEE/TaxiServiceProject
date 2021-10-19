@@ -1,10 +1,12 @@
 package ru.digitalleague.taxi_company.model;
 
+import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
+@ApiModel(value = "Модель сформированного заказа")
 public class Order {
 
     private long orderID;
