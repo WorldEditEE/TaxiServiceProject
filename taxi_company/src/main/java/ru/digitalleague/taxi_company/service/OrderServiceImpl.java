@@ -38,6 +38,7 @@ public class OrderServiceImpl implements OrderService {
     public String startTrip(Order order) {
 
         orderMapper.startTrip(order.getOrderID());
+        driverMapper.setBusy(order.getDriverID());
 
         return "Поездка началась";
     }
@@ -46,6 +47,7 @@ public class OrderServiceImpl implements OrderService {
     public String endTrip(Order order) {
 
         orderMapper.endTrip(order.getOrderID());
+        driverMapper.setFree(order.getDriverID());
 
         return "Поездка завершена";
     }

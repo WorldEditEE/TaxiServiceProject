@@ -32,4 +32,9 @@ public interface DriverInfoMapper {
     @Select("SELECT city_id FROM test.city_queue WHERE name=#{city}")
     int getCityID(String city);
 
+    @Update("UPDATE test.taxi_drive_info SET is_free=false WHERE driver_id=#{driverID}")
+    void setBusy(long driverID);
+
+    @Update("UPDATE test.taxi_drive_info SET is_free=true WHERE driver_id=#{driverID}")
+    void setFree(long driverID);
 }
