@@ -4,10 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.digitalleague.taxi_company.api.OrderService;
 import ru.digitalleague.taxi_company.mapper.DriverInfoMapper;
+import ru.digitalleague.taxi_company.mapper.DriverRatingMapper;
 import ru.digitalleague.taxi_company.mapper.OrderMapper;
 import ru.digitalleague.taxi_company.mapper.OrderTotalMapper;
 import ru.digitalleague.taxi_company.model.Order;
 import ru.digitalleague.taxi_company.model.OrderDetails;
+import ru.digitalleague.taxi_company.model.RateOrder;
 import ru.digitalleague.taxi_company.model.TaxiDriverInfo;
 
 import java.text.SimpleDateFormat;
@@ -27,6 +29,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     OrderTotalMapper orderTotalMapper;
+
+    @Autowired
+    DriverRatingMapper driverRatingMapper;
 
     @Override
     public String findDriver(OrderDetails orderDetails) {
@@ -67,5 +72,18 @@ public class OrderServiceImpl implements OrderService {
         orderTotalMapper.addSumTrip(totalSum, totalOrder.getOrderID());
 
         return "Поездка завершена, цена поездки - " + totalSum;
+    }
+
+    @Override
+    public int rateOrder(RateOrder rateOrder) {
+
+        Order order = orderMapper.getOrderById(rateOrder.getOrderID());
+
+        driverRatingMapper.rateOrder(order.getDriverID(), rateOrder.getRating());
+
+        int AVGRating = driverRatingMapper.getAVGRating(order.getDriverID());
+        driverMapper.updateRating(AVGRating);
+
+        return rateOrder.getRating();
     }
 }

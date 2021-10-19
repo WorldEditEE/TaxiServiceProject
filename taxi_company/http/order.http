@@ -19,3 +19,13 @@ Content-Type: application/json
 }
 
 ###
+
+POST http://localhost:8082/rate-driver
+Content-Type: application/json
+
+{
+  "orderID": "9",
+  "rating": "3"
+}
+
+###

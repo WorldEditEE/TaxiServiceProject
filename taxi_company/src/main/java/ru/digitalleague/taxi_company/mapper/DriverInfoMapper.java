@@ -53,4 +53,8 @@ public interface DriverInfoMapper {
     @Select("SELECT driver_id, last_name, first_name, level, car_model, create_dttm, city_id, is_free, minute_cost, rating " +
             "FROM test.taxi_drive_info WHERE driver_id=#{driverID}")
     TaxiDriverInfo findDriverById(long driverID);
+
+    @Update("UPDATE test.taxi_drive_info SET rating=#{AVGRating}")
+    void updateRating(int AVGRating);
+
 }
