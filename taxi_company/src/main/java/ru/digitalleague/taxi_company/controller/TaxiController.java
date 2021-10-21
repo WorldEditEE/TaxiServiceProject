@@ -22,7 +22,7 @@ public class TaxiController {
 
         String driverName = orderService.findDriver(orderDetails);
 
-        return ResponseEntity.ok(driverName);
+        return ResponseEntity.ok("Ваш водитель - " + driverName);
     }
 
     @PostMapping("/start-trip")
